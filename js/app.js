@@ -38,22 +38,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  const scrollForm = () => {
+  const contactClickHandler = async (event) => {
+    document.querySelector("body").classList.remove("lock");
+    document.querySelector(".header-menu__list").classList.remove("active");
+    document.querySelector(".header-menu__burger").classList.remove("active");
+    event.preventDefault();
     let dest = document.querySelector(".footer-form").getBoundingClientRect()
       .top;
     window.scrollTo({
       top: dest,
       behavior: "smooth",
     });
-  };
-
-  const contactClickHandler = async (event) => {
-    document.querySelector("body").classList.remove("lock");
-    document.querySelector(".header-menu__list").classList.remove("active");
-    document.querySelector(".header-menu__burger").classList.remove("active");
-
-    event.preventDefault();
-    scrollForm();
     setTimeout(() => document.forms[0].elements[0].focus(), 1000);
   };
 
